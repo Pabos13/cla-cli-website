@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { LegalPage } from '@/components/legal-page'
 
 export const metadata: Metadata = {
-  title: 'Regulamin | ClaAndSwaaped',
-  description: 'Regulamin świadczenia usług sprzątania przez ClaAndSwaaped.',
+  title: 'Regulamin | ClaAndSweeped',
+  description: 'Regulamin świadczenia usług sprzątania przez ClaAndSweeped.',
 }
 
 export default function Page() {
@@ -16,7 +16,7 @@ export default function Page() {
           heading: 'Postanowienia ogólne',
           body: (
             <p>
-              Niniejszy regulamin określa zasady świadczenia usług sprzątania mieszkań, domów i biur przez ClaAndSwaaped
+              Niniejszy regulamin określa zasady świadczenia usług sprzątania mieszkań, domów i biur przez ClaAndSweeped
               na terenie Torunia i okolic. Złożenie zamówienia oznacza akceptację regulaminu.
             </p>
           ),

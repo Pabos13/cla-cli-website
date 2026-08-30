@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, Sparkles } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 
 type Section = { heading: string; body: React.ReactNode }
 
@@ -9,8 +9,8 @@ export function LegalPage({ title, updated, sections }: { title: string; updated
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/75 backdrop-blur-xl">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-5 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <span className="flex size-10 items-center justify-center rounded-xl bg-accent text-accent-foreground"><Sparkles size={20} /></span>
-            <span className="font-mono text-sm font-bold tracking-tight text-white">ClaAndSwaaped<span className="text-accent">.</span></span>
+            <img src="/images/claandsweeped-logo.jpeg" alt="ClaAndSweeped" className="h-10 w-10 rounded-xl object-cover" />
+            <span className="font-mono text-sm font-bold tracking-tight text-white">ClaAndSweeped<span className="text-accent">.</span></span>
           </Link>
           <Link href="/" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10">
             <ArrowLeft size={16} /> Strona główna
