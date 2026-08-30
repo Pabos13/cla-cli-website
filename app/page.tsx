@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, Check, ChevronDown, Home, Leaf, Menu, MessageCircle, Phone, Sparkles, Star, X } from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, Home, Instagram, Leaf, Menu, MessageCircle, Phone, Sparkles, Star, X } from 'lucide-react'
 import { BeforeAfter } from '@/components/before-after'
 import { PriceCalculator } from '@/components/price-calculator'
 import { WhatsAppFab } from '@/components/whatsapp-fab'
@@ -137,6 +137,10 @@ export default function Page() {
               <li><a href="/polityka-cookies" className="transition hover:text-white">Polityka cookies</a></li>
             </ul>
             <a href="https://wa.me/48577867712" target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent"><Phone size={15} /> 577 867 712</a>
+            <div className="mt-5 flex items-center gap-3" aria-label="Media społecznościowe">
+              <span aria-label="Facebook — link zostanie dodany później" title="Facebook — link zostanie dodany później" className="flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-bold text-white/80">f</span>
+              <span aria-label="Instagram — link zostanie dodany później" title="Instagram — link zostanie dodany później" className="flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/80"><Instagram size={20} /></span>
+            </div>
           </div>
         </div>
         <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
