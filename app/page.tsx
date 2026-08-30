@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ArrowRight, Check, ChevronDown, Home, Leaf, Menu, MessageCircle, Phone, Sparkles, Star, X } from 'lucide-react'
 import { BeforeAfter } from '@/components/before-after'
+import { PriceCalculator } from '@/components/price-calculator'
 import { WhatsAppFab } from '@/components/whatsapp-fab'
 
 const services = [
@@ -72,13 +73,14 @@ export default function Page() {
           <nav className="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
             <a href="#uslugi" className="transition hover:text-white">Usługi</a>
             <a href="#cennik" className="transition hover:text-white">Cennik</a>
+            <a href="#kalkulator" className="transition hover:text-white">Kalkulator</a>
             <a href="#realizacje" className="transition hover:text-white">Realizacje</a>
             <a href="#opinie" className="transition hover:text-white">Opinie</a>
             <a href="#kontakt" className="rounded-full bg-accent px-5 py-3 text-accent-foreground transition hover:scale-105">Bezpłatna wycena <ArrowRight className="ml-2 inline" size={16} /></a>
           </nav>
           <button className="rounded-full bg-white/10 p-3 text-white md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">{menuOpen ? <X /> : <Menu />}</button>
         </div>
-        {menuOpen && <nav className="mx-4 mb-4 flex flex-col gap-2 rounded-2xl bg-card p-4 text-sm shadow-xl md:hidden"><a href="#uslugi" onClick={() => setMenuOpen(false)}>Usługi</a><a href="#cennik" onClick={() => setMenuOpen(false)}>Cennik</a><a href="#realizacje" onClick={() => setMenuOpen(false)}>Realizacje</a><a href="#opinie" onClick={() => setMenuOpen(false)}>Opinie</a><a href="#kontakt" onClick={() => setMenuOpen(false)} className="rounded-xl bg-accent px-4 py-3 font-semibold">Bezpłatna wycena</a></nav>}
+        {menuOpen && <nav className="mx-4 mb-4 flex flex-col gap-2 rounded-2xl bg-card p-4 text-sm shadow-xl md:hidden"><a href="#uslugi" onClick={() => setMenuOpen(false)}>Usługi</a><a href="#cennik" onClick={() => setMenuOpen(false)}>Cennik</a><a href="#kalkulator" onClick={() => setMenuOpen(false)}>Kalkulator</a><a href="#realizacje" onClick={() => setMenuOpen(false)}>Realizacje</a><a href="#opinie" onClick={() => setMenuOpen(false)}>Opinie</a><a href="#kontakt" onClick={() => setMenuOpen(false)} className="rounded-xl bg-accent px-4 py-3 font-semibold">Bezpłatna wycena</a></nav>}
       </header>
 
       <section id="start" className="relative flex min-h-[760px] items-end pb-24 pt-40 lg:items-center lg:pb-0">
@@ -96,6 +98,8 @@ export default function Page() {
       <section id="dlaczego-my" className="border-y border-border bg-primary py-24 text-white lg:py-32"><div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-accent">Prosto i bez stresu</p><h2 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">Porządek zaczyna się od dobrej rozmowy.</h2><p className="mt-5 leading-7 text-white/65">Działamy lokalnie, znamy Toruń i wiemy, że każda przestrzeń ma swoje potrzeby.</p></div><div className="grid gap-6 sm:grid-cols-3">{[['01','Napisz lub zadzwoń','Opowiedz nam, czego potrzebujesz.'],['02','Ustalimy szczegóły','Wybierzemy dogodny termin i zakres prac.'],['03','My zajmiemy się resztą','Przychodzimy punktualnie i zostawiamy idealny porządek.']].map(([num,title,text]) => <div key={num} className="border-t border-white/20 pt-5"><span className="font-mono text-2xl text-accent">{num}</span><h3 className="mt-6 font-mono text-lg font-bold">{title}</h3><p className="mt-2 text-sm leading-6 text-white/60">{text}</p></div>)}</div></div></section>
 
       <section id="cennik" className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32"><div className="mb-12 max-w-xl"><p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-accent">Przejrzyste stawki</p><h2 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">Cennik bez niespodzianek.</h2><p className="mt-4 leading-7 text-white/70">Poniżej stawki orientacyjne. Ostateczną, bezpłatną wycenę przygotujemy po krótkiej rozmowie o Twojej przestrzeni.</p></div><div className="grid gap-5 md:grid-cols-3">{plans.map((plan) => <article key={plan.name} className={`flex flex-col rounded-3xl border p-7 backdrop-blur-md ${plan.featured ? 'border-accent bg-accent/15 shadow-[0_22px_55px_rgba(0,0,0,0.4)]' : 'border-[rgba(130,195,235,0.2)] bg-[rgba(12,30,54,0.5)]'}`}><span className={`inline-flex w-fit rounded-full px-3 py-1 text-xs font-bold ${plan.featured ? 'bg-accent text-accent-foreground' : 'bg-white/10 text-accent'}`}>{plan.tag}</span><h3 className="mt-5 font-mono text-xl font-bold text-white">{plan.name}</h3><p className="mt-2 font-mono text-3xl font-bold text-accent">{plan.price}</p><ul className="mt-6 flex flex-1 flex-col gap-3 text-sm text-white/80">{plan.features.map((f) => <li key={f} className="flex items-start gap-2"><Check size={18} className="mt-0.5 shrink-0 text-accent" /> {f}</li>)}</ul><a href="#kontakt" className={`mt-7 rounded-full px-5 py-3 text-center font-bold transition hover:scale-[1.02] ${plan.featured ? 'bg-accent text-accent-foreground' : 'border border-white/25 text-white hover:bg-white/10'}`}>Zapytaj o wycenę</a></article>)}</div></section>
+
+      <section id="kalkulator" className="mx-auto max-w-7xl px-5 pb-24 lg:px-8"><div className="mb-12 max-w-xl"><p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-accent">Policz w 10 sekund</p><h2 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">Kalkulator wyceny.</h2><p className="mt-4 leading-7 text-white/70">Ustaw metraż, rodzaj i częstotliwość, aby zobaczyć orientacyjny koszt. Gotowe podsumowanie wyślij prosto na WhatsApp.</p></div><PriceCalculator /></section>
 
       <section id="realizacje" className="mx-auto max-w-7xl px-5 pb-24 lg:px-8"><div className="mb-12 max-w-xl"><p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-accent">Zobacz różnicę</p><h2 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">Efekty naszej pracy.</h2><p className="mt-4 leading-7 text-white/70">Przeciągnij suwak, aby porównać stan przed i po sprzątaniu.</p></div><div className="grid gap-6 md:grid-cols-2">{gallery.map((item) => <BeforeAfter key={item.label} before={item.before} after={item.after} label={item.label} />)}</div></section>
 
@@ -119,6 +123,7 @@ export default function Page() {
             <ul className="mt-4 space-y-2 text-sm">
               <li><a href="#uslugi" className="transition hover:text-white">Usługi</a></li>
               <li><a href="#cennik" className="transition hover:text-white">Cennik</a></li>
+              <li><a href="#kalkulator" className="transition hover:text-white">Kalkulator wyceny</a></li>
               <li><a href="#realizacje" className="transition hover:text-white">Realizacje</a></li>
               <li><a href="#opinie" className="transition hover:text-white">Opinie</a></li>
               <li><a href="#kontakt" className="transition hover:text-white">Kontakt</a></li>
