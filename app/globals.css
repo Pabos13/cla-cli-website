@@ -27,36 +27,114 @@
 
 :root {
   color-scheme: dark;
-  --background: oklch(0.12 0.035 235);
-  --foreground: oklch(0.94 0.025 190);
-  --card: oklch(0.16 0.045 235);
-  --card-foreground: oklch(0.94 0.025 190);
-  --primary: oklch(0.13 0.05 240);
-  --primary-foreground: oklch(0.96 0.02 190);
-  --secondary: oklch(0.18 0.06 210);
-  --secondary-foreground: oklch(0.94 0.025 190);
-  --muted: oklch(0.2 0.035 235);
-  --muted-foreground: oklch(0.68 0.035 210);
-  --accent: oklch(0.82 0.16 180);
-  --accent-foreground: oklch(0.12 0.05 230);
-  --border: oklch(0.3 0.07 220);
+  --background: oklch(0.14 0.045 245);
+  --foreground: oklch(0.96 0.02 210);
+  --card: oklch(0.2 0.05 240);
+  --card-foreground: oklch(0.96 0.02 210);
+  --primary: oklch(0.16 0.06 245);
+  --primary-foreground: oklch(0.97 0.015 205);
+  --secondary: oklch(0.22 0.07 220);
+  --secondary-foreground: oklch(0.96 0.02 210);
+  --muted: oklch(0.24 0.04 240);
+  --muted-foreground: oklch(0.82 0.03 210);
+  --accent: oklch(0.78 0.15 220);
+  --accent-foreground: oklch(0.14 0.06 245);
+  --border: oklch(0.72 0.08 220 / 0.28);
   --radius: 0.9rem;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--background); }
-body { margin: 0; min-height: 100vh; font-family: var(--font-geist); color: var(--foreground); background: linear-gradient(rgba(8,24,42,.88), rgba(8,24,42,.94)), url('/images/cleaning-hero.png') center top / cover fixed no-repeat; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+/* Single, page-wide, pinned background image.
+   The fixed pseudo-element keeps the image locked in place on every device
+   (including iOS, where `background-attachment: fixed` is unreliable). */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-geist);
+  color: var(--foreground);
+  background: transparent;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url('/images/cleaning-bg.jpg') center center / cover no-repeat;
+}
+
+/* Soft tint so light text stays legible while the photo remains visible everywhere. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(120% 90% at 15% 20%, rgba(8, 26, 48, 0.42), transparent 60%),
+    linear-gradient(180deg, rgba(6, 20, 38, 0.5), rgba(6, 20, 38, 0.58));
+}
+
 a, button, article, details { transition: all .35s cubic-bezier(.22,1,.36,1); }
+
 main { min-height: 100vh; background: transparent; }
-main > section { background-color: transparent; }
-main > section.bg-primary { background-color: rgba(8,24,42,.82); }
-main > section.bg-accent { background-color: var(--accent); }
-article { animation: rise .8s both; }
-article:nth-child(2) { animation-delay: .12s; }
-article:nth-child(3) { animation-delay: .24s; }
-article:hover { transform: translateY(-8px) scale(1.015); box-shadow: 0 18px 50px rgba(0,0,0,.28), 0 0 25px color-mix(in srgb, var(--accent) 12%, transparent); }
+
+/* Keep every section transparent so the pinned background shows through the whole page. */
+main > section { background-color: transparent; position: relative; }
+
+/* Frosted-glass panels for the darker sections — futuristic and readable. */
+main > section.bg-primary {
+  background-color: rgba(9, 24, 44, 0.55);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  border-color: rgba(120, 190, 230, 0.18);
+}
+
+/* Contact section: translucent accent glass instead of a flat block. */
+main > section.bg-accent {
+  background-color: color-mix(in srgb, var(--accent) 30%, rgba(9, 24, 44, 0.62));
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  color: var(--foreground);
+}
+
+/* Header glass bar. */
+header {
+  background-color: rgba(9, 24, 44, 0.5) !important;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+/* Service cards as glass tiles with a subtle glow ring. */
+#uslugi article {
+  background-color: rgba(12, 30, 54, 0.5);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border-color: rgba(130, 195, 235, 0.2);
+  animation: rise .8s both;
+}
+#uslugi article:nth-child(2) { animation-delay: .12s; }
+#uslugi article:nth-child(3) { animation-delay: .24s; }
+#uslugi article:hover {
+  transform: translateY(-8px) scale(1.015);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, .38), 0 0 30px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
 @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 header a:first-child span:first-child { animation: float 4s ease-in-out infinite; }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
-@media (max-width: 768px) { body { background-attachment: scroll; background-position: center top; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
