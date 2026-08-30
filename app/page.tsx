@@ -68,7 +68,7 @@ export default function Page() {
       </header>
 
       <section id="start" className="relative isolate flex min-h-[720px] items-end bg-primary pb-16 pt-32 lg:min-h-[780px] lg:items-center lg:pb-0">
-        <div className="absolute inset-0 -z-10 bg-[url('/images/cleaning-hero.png')] bg-cover bg-[center_35%]" />
+        <div className="fixed inset-0 -z-10 bg-[url('/images/cleaning-hero.png')] bg-cover bg-[center_35%]" aria-hidden="true" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary via-primary/85 to-primary/15" />
         <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
           <div className="max-w-2xl text-white">
