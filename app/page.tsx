@@ -76,6 +76,10 @@ export default function Page() {
             <a href="#kalkulator" className="transition hover:text-white">Kalkulator</a>
             <a href="#realizacje" className="transition hover:text-white">Realizacje</a>
             <a href="#opinie" className="transition hover:text-white">Opinie</a>
+            <div className="flex items-center gap-2 border-l border-white/15 pl-5" aria-label="Media społecznościowe">
+              <span aria-label="Facebook — link zostanie dodany później" title="Facebook — link zostanie dodany później" className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-base font-bold text-white/80">f</span>
+              <span aria-label="Instagram — link zostanie dodany później" title="Instagram — link zostanie dodany później" className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-semibold text-white/80">◎</span>
+            </div>
             <a href="#kontakt" className="rounded-full bg-accent px-5 py-3 text-accent-foreground transition hover:scale-105">Bezpłatna wycena <ArrowRight className="ml-2 inline" size={16} /></a>
           </nav>
           <button className="rounded-full bg-white/10 p-3 text-white md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">{menuOpen ? <X /> : <Menu />}</button>
@@ -113,7 +117,7 @@ export default function Page() {
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <span className="flex items-center gap-3">
-              <img src="/images/claandsweeped-logo.jpeg" alt="ClaAndSweeped" className="h-10 w-10 rounded-xl object-cover" />
+              <img src="/images/claandsweeped-logo.jpeg" alt="ClaAndSweeped" className="h-24 w-24 rounded-2xl object-cover" />
               <span className="font-mono text-base font-bold text-white">ClaAndSweeped<span className="text-accent">.</span></span>
             </span>
             <p className="mt-4 max-w-xs text-sm leading-6">Profesjonalne sprzątanie mieszkań, domów i biur w Toruniu i okolicach.</p>
