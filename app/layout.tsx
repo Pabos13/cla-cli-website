@@ -8,24 +8,26 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'ClaAndSwaaped | Profesjonalne sprzątanie w Toruniu',
+  title: 'ClaAndSweeped | Profesjonalne sprzątanie w Toruniu',
   description:
     'Profesjonalne sprzątanie mieszkań, domów i biur w Toruniu i okolicach. Sprzątanie standardowe, regularne i generalne. Bezpłatna wycena i kontakt przez WhatsApp: 577 867 712.',
   keywords: ['sprzątanie Toruń', 'firma sprzątająca Toruń', 'sprzątanie mieszkań', 'sprzątanie biur', 'sprzątanie po remoncie'],
-  generator: 'ClaAndSwaaped',
+  generator: 'ClaAndSweeped',
   openGraph: {
-    title: 'ClaAndSwaaped | Profesjonalne sprzątanie w Toruniu',
+    title: 'ClaAndSweeped | Profesjonalne sprzątanie w Toruniu',
     description: 'Sprzątanie mieszkań, domów i biur w Toruniu. Bezpłatna wycena, kontakt przez WhatsApp.',
     type: 'website',
     locale: 'pl_PL',
-    siteName: 'ClaAndSwaaped',
+    siteName: 'ClaAndSweeped',
+    images: [{ url: '/images/claandsweeped-logo.jpeg', alt: 'Logo ClaAndSweeped' }],
   },
+  icons: { icon: '/images/claandsweeped-logo.jpeg' },
 }
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HouseholdSupplyStore',
-  name: 'ClaAndSwaaped',
+  name: 'ClaAndSweeped',
   description: 'Profesjonalne sprzątanie mieszkań, domów i biur w Toruniu i okolicach.',
   telephone: '+48577867712',
   areaServed: 'Toruń i okolice',

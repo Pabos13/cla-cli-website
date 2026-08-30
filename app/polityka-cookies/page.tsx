@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { LegalPage } from '@/components/legal-page'
 
 export const metadata: Metadata = {
-  title: 'Polityka cookies | ClaAndSwaaped',
-  description: 'Informacje o plikach cookie wykorzystywanych na stronie ClaAndSwaaped.',
+  title: 'Polityka cookies | ClaAndSweeped',
+  description: 'Informacje o plikach cookie wykorzystywanych na stronie ClaAndSweeped.',
 }
 
 export default function Page() {

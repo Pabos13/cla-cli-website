@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ArrowRight, Check, ChevronDown, Home, Leaf, Menu, MessageCircle, Phone, Sparkles, Star, X } from 'lucide-react'
 import { BeforeAfter } from '@/components/before-after'
+import { PageLoader } from '@/components/page-loader'
 import { PriceCalculator } from '@/components/price-calculator'
 import { WhatsAppFab } from '@/components/whatsapp-fab'
 
@@ -63,12 +64,14 @@ export default function Page() {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+    <>
+      <PageLoader />
+      <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/75 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <a href="#start" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-            <span className="flex size-10 items-center justify-center rounded-xl bg-accent text-accent-foreground"><Sparkles size={20} /></span>
-            <span className="font-mono text-sm font-bold tracking-tight text-white">ClaAndSwaaped<span className="text-accent">.</span></span>
+            <img src="/images/claandsweeped-logo.jpeg" alt="ClaAndSweeped" className="h-10 w-10 rounded-xl object-cover" />
+            <span className="font-mono text-sm font-bold tracking-tight text-white">ClaAndSweeped<span className="text-accent">.</span></span>
           </a>
           <nav className="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
             <a href="#uslugi" className="transition hover:text-white">Usługi</a>
@@ -76,6 +79,10 @@ export default function Page() {
             <a href="#kalkulator" className="transition hover:text-white">Kalkulator</a>
             <a href="#realizacje" className="transition hover:text-white">Realizacje</a>
             <a href="#opinie" className="transition hover:text-white">Opinie</a>
+            <div className="flex items-center gap-2 border-l border-white/15 pl-5" aria-label="Media społecznościowe">
+              <span aria-label="Facebook — link zostanie dodany później" title="Facebook — link zostanie dodany później" className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-base font-bold text-white/80">f</span>
+              <span aria-label="Instagram — link zostanie dodany później" title="Instagram — link zostanie dodany później" className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-semibold text-white/80">◎</span>
+            </div>
             <a href="#kontakt" className="rounded-full bg-accent px-5 py-3 text-accent-foreground transition hover:scale-105">Bezpłatna wycena <ArrowRight className="ml-2 inline" size={16} /></a>
           </nav>
           <button className="rounded-full bg-white/10 p-3 text-white md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">{menuOpen ? <X /> : <Menu />}</button>
@@ -103,7 +110,7 @@ export default function Page() {
 
       <section id="realizacje" className="mx-auto max-w-7xl px-5 pb-24 lg:px-8"><div className="mb-12 max-w-xl"><p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-accent">Zobacz różnicę</p><h2 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">Efekty naszej pracy.</h2><p className="mt-4 leading-7 text-white/70">Przeciągnij suwak, aby porównać stan przed i po sprzątaniu.</p></div><div className="grid gap-6 md:grid-cols-2">{gallery.map((item) => <BeforeAfter key={item.label} before={item.before} after={item.after} label={item.label} />)}</div></section>
 
-      <section id="opinie" className="mx-auto max-w-7xl px-5 py-24 lg:px-8"><div className="max-w-2xl"><div className="mb-5 flex gap-1 text-accent">{[1,2,3,4,5].map(item => <Star key={item} size={18} fill="currentColor" />)}</div><blockquote className="font-mono text-3xl font-bold leading-snug sm:text-4xl">„W końcu wracam do domu i naprawdę odpoczywam. Dla ClaAndSwaaped to nie tylko sprzątanie — to odzyskany czas.”</blockquote><p className="mt-5 text-sm text-muted-foreground">— Marta, Toruń / Rubinkowo</p></div></section>
+      <section id="opinie" className="mx-auto max-w-7xl px-5 py-24 lg:px-8"><div className="max-w-2xl"><div className="mb-5 flex gap-1 text-accent">{[1,2,3,4,5].map(item => <Star key={item} size={18} fill="currentColor" />)}</div><blockquote className="font-mono text-3xl font-bold leading-snug sm:text-4xl">„W końcu wracam do domu i naprawdę odpoczywam. Dla ClaAndSweeped to nie tylko sprzątanie — to odzyskany czas.”</blockquote><p className="mt-5 text-sm text-muted-foreground">— Marta, Toruń / Rubinkowo</p></div></section>
 
       <section className="mx-auto max-w-4xl px-5 pb-24 lg:px-8"><p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-accent">Masz pytania?</p><h2 className="font-mono text-4xl font-bold">Warto wiedzieć</h2><div className="mt-8 divide-y divide-border border-y border-border">{faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="flex cursor-pointer list-none items-center justify-between font-semibold">{question}<ChevronDown className="transition group-open:rotate-180" size={20} /></summary><p className="max-w-2xl pt-3 leading-7 text-muted-foreground">{answer}</p></details>)}</div></section>
 
@@ -113,8 +120,8 @@ export default function Page() {
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <span className="flex items-center gap-3">
-              <span className="flex size-10 items-center justify-center rounded-xl bg-accent text-accent-foreground"><Sparkles size={20} /></span>
-              <span className="font-mono text-base font-bold text-white">ClaAndSwaaped<span className="text-accent">.</span></span>
+              <img src="/images/claandsweeped-logo.jpeg" alt="ClaAndSweeped" className="h-24 w-24 rounded-2xl object-cover" />
+              <span className="font-mono text-base font-bold text-white">ClaAndSweeped<span className="text-accent">.</span></span>
             </span>
             <p className="mt-4 max-w-xs text-sm leading-6">Profesjonalne sprzątanie mieszkań, domów i biur w Toruniu i okolicach.</p>
           </div>
@@ -137,15 +144,20 @@ export default function Page() {
               <li><a href="/polityka-cookies" className="transition hover:text-white">Polityka cookies</a></li>
             </ul>
             <a href="https://wa.me/48577867712" target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent"><Phone size={15} /> 577 867 712</a>
+            <div className="mt-5 flex items-center gap-3" aria-label="Media społecznościowe">
+              <span aria-label="Facebook — link zostanie dodany później" title="Facebook — link zostanie dodany później" className="flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-bold text-white/80">f</span>
+              <span aria-label="Instagram — link zostanie dodany później" title="Instagram — link zostanie dodany później" className="flex size-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-semibold text-white/80">◎</span>
+            </div>
           </div>
         </div>
         <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
           <span>Pon–Pt, 8:00–18:00 · Toruń i okolice</span>
-          <span>© 2026 ClaAndSwaaped. Wszelkie prawa zastrzeżone.</span>
+          <span>© 2026 ClaAndSweeped. Wszelkie prawa zastrzeżone.</span>
         </div>
       </footer>
 
       <WhatsAppFab />
-    </main>
+      </main>
+    </>
   )
 }

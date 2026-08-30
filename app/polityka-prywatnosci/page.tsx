@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { LegalPage } from '@/components/legal-page'
 
 export const metadata: Metadata = {
-  title: 'Polityka prywatności | ClaAndSwaaped',
-  description: 'Zasady przetwarzania danych osobowych przez ClaAndSwaaped.',
+  title: 'Polityka prywatności | ClaAndSweeped',
+  description: 'Zasady przetwarzania danych osobowych przez ClaAndSweeped.',
 }
 
 export default function Page() {
@@ -16,7 +16,7 @@ export default function Page() {
           heading: 'Administrator danych',
           body: (
             <p>
-              Administratorem Twoich danych osobowych jest ClaAndSwaaped, świadczący usługi sprzątania na terenie Torunia
+              Administratorem Twoich danych osobowych jest ClaAndSweeped, świadczący usługi sprzątania na terenie Torunia
               i okolic. W sprawach związanych z ochroną danych skontaktuj się z nami przez WhatsApp pod numerem 577 867 712.
             </p>
           ),
