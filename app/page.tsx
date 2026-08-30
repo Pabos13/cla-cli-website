@@ -69,7 +69,39 @@ export default function Page() {
 
       <section id="kontakt" className="bg-accent border-y border-white/10 px-5 py-20 text-white lg:px-8 lg:py-28"><div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-end"><div><p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-accent">Zacznijmy od czystej kartki</p><h2 className="font-mono text-4xl font-bold tracking-tight sm:text-5xl">Gotowy na więcej wolnego czasu?</h2><p className="mt-4 max-w-lg leading-7 text-white/75">Napisz do nas przez formularz kontaktowy. Przygotujemy bezpłatną wycenę dopasowaną do Twojej przestrzeni.</p><a href="https://wa.me/48577867712" target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 font-bold text-accent underline underline-offset-4"><MessageCircle size={18} /> WhatsApp: 577 867 712</a></div><form onSubmit={sendToWhatsApp} className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-md"><label className="block text-sm font-semibold text-white">Imię<input name="name" required className="mt-2 w-full rounded-xl border border-white/15 bg-white/95 px-4 py-3 text-base text-primary outline-none focus:ring-2 focus:ring-accent" placeholder="Jak masz na imię?" /></label><label className="mt-4 block text-sm font-semibold text-white">Numer telefonu<input name="phone" type="tel" className="mt-2 w-full rounded-xl border border-white/15 bg-white/95 px-4 py-3 text-base text-primary outline-none focus:ring-2 focus:ring-accent" placeholder="Twój numer (opcjonalnie)" /></label><label className="mt-4 block text-sm font-semibold text-white">Wiadomość<textarea name="message" required className="mt-2 min-h-28 w-full rounded-xl border border-white/15 bg-white/95 px-4 py-3 text-base text-primary outline-none focus:ring-2 focus:ring-accent" placeholder="Czego potrzebujesz?" /></label><button type="submit" className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 font-bold text-accent-foreground transition hover:scale-[1.02]"><MessageCircle size={18} /> {sent ? 'Otwórzono WhatsApp ✓' : 'Wyślij przez WhatsApp'}</button><p className="mt-3 text-center text-xs text-white/60">Formularz otworzy rozmowę na WhatsApp: 577 867 712</p></form></div></section>
 
-      <footer className="bg-primary px-5 py-8 text-white/60 lg:px-8"><div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm sm:flex-row sm:items-center sm:justify-between"><span className="font-mono font-bold text-white">ClaAndSwaaped<span className="text-accent">.</span></span><span><Phone className="mr-2 inline" size={15} /> Pon–Pt, 8:00–18:00 · Toruń i okolice</span><span>© 2026 ClaAndSwaaped</span></div></footer>
+      <footer className="border-t border-white/10 bg-primary/70 px-5 pb-8 pt-14 text-white/60 backdrop-blur-xl lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <span className="flex items-center gap-3">
+              <span className="flex size-10 items-center justify-center rounded-xl bg-accent text-accent-foreground"><Sparkles size={20} /></span>
+              <span className="font-mono text-base font-bold text-white">ClaAndSwaaped<span className="text-accent">.</span></span>
+            </span>
+            <p className="mt-4 max-w-xs text-sm leading-6">Profesjonalne sprzątanie mieszkań, domów i biur w Toruniu i okolicach.</p>
+          </div>
+          <div>
+            <h3 className="font-mono text-sm font-bold uppercase tracking-[0.14em] text-white">Nawigacja</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><a href="#uslugi" className="transition hover:text-white">Usługi</a></li>
+              <li><a href="#dlaczego-my" className="transition hover:text-white">Dlaczego my</a></li>
+              <li><a href="#opinie" className="transition hover:text-white">Opinie</a></li>
+              <li><a href="#kontakt" className="transition hover:text-white">Kontakt</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-mono text-sm font-bold uppercase tracking-[0.14em] text-white">Informacje prawne</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><a href="/regulamin" className="transition hover:text-white">Regulamin</a></li>
+              <li><a href="/polityka-prywatnosci" className="transition hover:text-white">Polityka prywatności</a></li>
+              <li><a href="/polityka-cookies" className="transition hover:text-white">Polityka cookies</a></li>
+            </ul>
+            <a href="https://wa.me/48577867712" target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent"><Phone size={15} /> 577 867 712</a>
+          </div>
+        </div>
+        <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+          <span>Pon–Pt, 8:00–18:00 · Toruń i okolice</span>
+          <span>© 2026 ClaAndSwaaped. Wszelkie prawa zastrzeżone.</span>
+        </div>
+      </footer>
     </main>
   )
 }
