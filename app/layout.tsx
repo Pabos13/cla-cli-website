@@ -19,7 +19,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pl_PL',
     siteName: 'ClaAndSweeped',
-    images: [{ url: '/images/claandsweeped-logo.jpeg', alt: 'Logo ClaAndSweeped' }],
+    images: [{ url: '/images/claandsweeped-share.jpeg', width: 1672, height: 942, alt: 'ClaAndSweeped — profesjonalne sprzątanie biur i mieszkań' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ClaAndSweeped | Profesjonalne sprzątanie w Toruniu',
+    description: 'Profesjonalne sprzątanie mieszkań, domów i biur w Toruniu i okolicach.',
+    images: ['/images/claandsweeped-share.jpeg'],
   },
   icons: { icon: '/images/claandsweeped-logo.jpeg' },
 }
