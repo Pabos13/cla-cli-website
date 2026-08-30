@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ArrowRight, Check, ChevronDown, Home, Leaf, Menu, MessageCircle, Phone, Sparkles, Star, X } from 'lucide-react'
 import { BeforeAfter } from '@/components/before-after'
+import { PageLoader } from '@/components/page-loader'
 import { PriceCalculator } from '@/components/price-calculator'
 import { WhatsAppFab } from '@/components/whatsapp-fab'
 
@@ -63,7 +64,9 @@ export default function Page() {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-background text-foreground">
+    <>
+      <PageLoader />
+      <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/75 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <a href="#start" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
@@ -154,6 +157,7 @@ export default function Page() {
       </footer>
 
       <WhatsAppFab />
-    </main>
+      </main>
+    </>
   )
 }
